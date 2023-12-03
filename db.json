@@ -1,0 +1,114 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "Acme Fresh Start Housing",
+      "city": "Chicago",
+      "state": "IL",
+      "photo": "/assets/bernard-hermant-CLKGGwIBTaY-unsplash.jpg",
+      "price": 350000,
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 2,
+      "name": "A113 Transitional Housing",
+      "city": "Santa Monica",
+      "state": "CA",
+      "photo": "/assets/brandon-griggs-wR11KBaB86U-unsplash.jpg",
+      "price": 130000,
+      "availableUnits": 2,
+      "wifi": false,
+      "laundry": true
+    },
+    {
+      "id": 3,
+      "name": "Warm Beds Housing Support",
+      "city": "Juneau",
+      "state": "AK",
+      "photo": "/assets/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg",
+      "price": 650000,
+      "availableUnits": 1,
+      "wifi": false,
+      "laundry": false
+    },
+    {
+      "id": 4,
+      "name": "Homesteady Housing",
+      "city": "Chicago",
+      "state": "IL",
+      "photo": "/assets/ian-macdonald-W8z6aiwfi1E-unsplash.jpg",
+      "price": 375000,
+      "availableUnits": 6,
+      "wifi": true,
+      "laundry": false
+    },
+    {
+      "id": 5,
+      "name": "Happy Homes Group",
+      "city": "Gary",
+      "state": "IN",
+      "photo": "/assets/krzysztof-hepner-978RAXoXnH4-unsplash.jpg",
+      "price": 225000,
+      "availableUnits": 4,
+      "wifi": true,
+      "laundry": false
+    },
+    {
+      "id": 6,
+      "name": "Hopeful Apartment Group",
+      "city": "Oakland",
+      "state": "CA",
+      "photo": "/assets/r-architecture-JvQ0Q5IkeMM-unsplash.jpg",
+      "price": 520000,
+      "availableUnits": 3,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 7,
+      "name": "Seriously Safe Towns",
+      "city": "Oakland",
+      "state": "CA",
+      "photo": "/assets/phil-hearing-IYfp2Ixe9nM-unsplash.jpg",
+      "price": 320000,
+      "availableUnits": 5,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 8,
+      "name": "Hopeful Housing Solutions",
+      "city": "Oakland",
+      "state": "CA",
+      "photo": "/assets/r-architecture-GGupkreKwxA-unsplash.jpg",
+      "price": 186000,
+      "availableUnits": 8,
+      "wifi": true,
+      "laundry": true
+    },
+    {
+      "id": 9,
+      "name": "Seriously Safe Towns",
+      "city": "Oakland",
+      "state": "CA",
+      "photo": "/assets/saru-robert-9rP3mxf8qWI-unsplash.jpg",
+      "price": 820000,
+      "availableUnits": 10,
+      "wifi": false,
+      "laundry": false
+    },
+    {
+      "id": 10,
+      "name": "Capital Safe Towns",
+      "city": "Portland",
+      "state": "OR",
+      "photo": "/assets/webaliser-_TPTXZd9mOo-unsplash.jpg",
+      "price": 900000,
+      "availableUnits": 6,
+      "wifi": true,
+      "laundry": true
+    }
+  ]
+}

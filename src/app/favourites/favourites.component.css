@@ -1,0 +1,31 @@
+div.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .favorites-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .favorites-table th, .favorites-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .table-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .favorites-table {
+      overflow-x: auto;
+    }
+  }
+  
