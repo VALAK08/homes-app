@@ -2,12 +2,13 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { HousingPurchaseComponent } from './housing-purchase/housing-purchase.component';
 
 const routeConfig: Routes = [
     {
         path: '',
         component: HomeComponent,
-        title: 'Home Page'
+        title: 'Homes'
     },
     {
         path: 'details/:id',
@@ -18,6 +19,11 @@ const routeConfig: Routes = [
         path: 'favourites',
         component: FavouritesComponent,
         title: 'Favourites Page'
+    },
+    {
+        path: 'purchase',
+        component: HousingPurchaseComponent,
+        title: 'Purchase Page'
     }
 ];
 

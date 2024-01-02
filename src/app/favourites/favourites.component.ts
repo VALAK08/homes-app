@@ -24,7 +24,7 @@ import { LikedItemsService } from '../Services/liked-items.service';
             <td><img [src]="item.photo" alt="{{ item.name }}" class="table-photo"></td>
             <td>{{ item.name }}</td>
             <td>{{ item.availableUnits }}</td>
-            <td>{{ item.price }} USD</td>
+            <td><img class="currency" src="/assets/usd.png">{{ item.price }}</td>
           </tr>
         </tbody>
       </table>

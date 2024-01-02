@@ -1,9 +1,14 @@
+.header-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
 .results {
     display: grid;
     column-gap: 14px;
     row-gap: 34px;
+    margin-top: 20px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-    margin-top: 50px;
     justify-content: space-around;
   }
   
@@ -13,7 +18,6 @@
     border-radius: 8px;
     margin-right: 4px;
     display: inline-block;
-    width: 30%;
   }
   
   button {
@@ -39,14 +43,40 @@
     }    
   }
 
-  .show-more-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 100px;
-    height: 40px;
-    margin-top: 20px;
-    cursor: pointer;
+  @media (max-width: 485px) {
+    .header-wrapper{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    
   }
+
+  .show-more-btn {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font: 13px 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    background-color: var(--primary-color);
+    border: 5px solid transparent;
+    transition: .2s ease;
+    border-radius: 50px;
+  }
+  
+  .show-more-btn:hover {
+    color: var(--primary-color);
+    background-color: white;
+    transform: scale(1.1);
+    border: 5px solid var(--primary-color);
+  }
+
   

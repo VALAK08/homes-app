@@ -21,7 +21,7 @@ export class HousingService {
     return await data.json() ?? {};
   }
 
-  submitApplication(firstName: string, lastName: string, email: string) {
-    console.log(firstName, lastName, email);
+  submitApplication(firstName: string, lastName: string, email: string, address: string, phoneNumber: string) {
+    console.log(firstName, lastName, email, address, phoneNumber);
   }
 }

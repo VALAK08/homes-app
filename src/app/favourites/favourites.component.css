@@ -22,6 +22,10 @@ div.centered-container {
     height: 100px;
     object-fit: cover;
   }
+
+  .currency{
+    width: 30px;
+  }
   
   @media screen and (max-width: 600px) {
     .favorites-table {

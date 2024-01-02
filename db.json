@@ -6,7 +6,7 @@
       "city": "Chicago",
       "state": "IL",
       "photo": "/assets/bernard-hermant-CLKGGwIBTaY-unsplash.jpg",
-      "price": 350000,
+      "price": "350,000",
       "availableUnits": 4,
       "wifi": true,
       "laundry": true
@@ -17,7 +17,7 @@
       "city": "Santa Monica",
       "state": "CA",
       "photo": "/assets/brandon-griggs-wR11KBaB86U-unsplash.jpg",
-      "price": 130000,
+      "price": "130,000",
       "availableUnits": 2,
       "wifi": false,
       "laundry": true
@@ -28,7 +28,7 @@
       "city": "Juneau",
       "state": "AK",
       "photo": "/assets/i-do-nothing-but-love-lAyXdl1-Wmc-unsplash.jpg",
-      "price": 650000,
+      "price": "650,000",
       "availableUnits": 1,
       "wifi": false,
       "laundry": false
@@ -39,7 +39,7 @@
       "city": "Chicago",
       "state": "IL",
       "photo": "/assets/ian-macdonald-W8z6aiwfi1E-unsplash.jpg",
-      "price": 375000,
+      "price": "375,000",
       "availableUnits": 6,
       "wifi": true,
       "laundry": false
@@ -50,7 +50,7 @@
       "city": "Gary",
       "state": "IN",
       "photo": "/assets/krzysztof-hepner-978RAXoXnH4-unsplash.jpg",
-      "price": 225000,
+      "price": "225,000",
       "availableUnits": 4,
       "wifi": true,
       "laundry": false
@@ -61,7 +61,7 @@
       "city": "Oakland",
       "state": "CA",
       "photo": "/assets/r-architecture-JvQ0Q5IkeMM-unsplash.jpg",
-      "price": 520000,
+      "price": "520,000",
       "availableUnits": 3,
       "wifi": true,
       "laundry": true
@@ -72,7 +72,7 @@
       "city": "Oakland",
       "state": "CA",
       "photo": "/assets/phil-hearing-IYfp2Ixe9nM-unsplash.jpg",
-      "price": 320000,
+      "price": "320,000",
       "availableUnits": 5,
       "wifi": true,
       "laundry": true
@@ -83,7 +83,7 @@
       "city": "Oakland",
       "state": "CA",
       "photo": "/assets/r-architecture-GGupkreKwxA-unsplash.jpg",
-      "price": 186000,
+      "price": "186,000",
       "availableUnits": 8,
       "wifi": true,
       "laundry": true
@@ -94,7 +94,7 @@
       "city": "Oakland",
       "state": "CA",
       "photo": "/assets/saru-robert-9rP3mxf8qWI-unsplash.jpg",
-      "price": 820000,
+      "price": "820,000",
       "availableUnits": 10,
       "wifi": false,
       "laundry": false
@@ -105,7 +105,7 @@
       "city": "Portland",
       "state": "OR",
       "photo": "/assets/webaliser-_TPTXZd9mOo-unsplash.jpg",
-      "price": 900000,
+      "price": "900,000",
       "availableUnits": 6,
       "wifi": true,
       "laundry": true

@@ -33,6 +33,18 @@
   padding: 5px;
 }
 
+.listing-price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    gap: 2px;
+}
+
+.currency{
+  width: 30px;
+}
+
 a {
   padding-left: 20px;
   text-decoration: none;
@@ -90,4 +102,5 @@ a::after {
 	color: white;
 	background-color: #5E5DF0;
 	cursor: pointer;
+  outline: none;
 }

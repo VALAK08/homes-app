@@ -26,6 +26,7 @@ export type SORT_ORDER = 'asc' | 'desc';
     MatPaginatorModule,
   ],
   template: `
+  <div class="header-wrapper"> 
     <section>
       <form>
         <input type="text" autocomplete="off" placeholder="Filter by city" #filter />
@@ -43,6 +44,7 @@ export type SORT_ORDER = 'asc' | 'desc';
         </mat-select>
       </mat-form-field>
     </section>
+    </div>
     <section class="results">
       <app-housing-location
         *ngFor="let housingLocation of visibleLocationList | priceSort:sortOrder"
@@ -50,7 +52,7 @@ export type SORT_ORDER = 'asc' | 'desc';
       ></app-housing-location>
     </section>
           <button class="show-more-btn" (click)="toggleShowMore()">
-        {{ showMore ? 'Show More' : 'Show Less' }}
+        {{ showMore ? 'Show More ⮟' : 'Show Less ⮝' }}
       </button>
   `,
   styleUrls: ['./home.component.css'],
@@ -59,7 +61,7 @@ export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
-  pageSize = 3;
+  pageSize = 4;
   totalItems = 10;
   sortOrder: SORT_ORDER = 'asc';
   showMore = true; 
