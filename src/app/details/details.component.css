@@ -4,19 +4,20 @@
   align-items: center;
 }
 
-.form{
+.submitFormWrapper{
   display: flex;
-  justify-content: center;
-  max-width: 500px;
+  gap: 20px;
 }
 
 section{
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
 }
 
 .listing-photo {
-  width: 50%;
-  object-fit: cover;
+  width: 700px;
+  height: 700px;
   border-radius: 30px;
   }
   
@@ -65,12 +66,6 @@ section{
     text-align: center;
   }
 
-  .housing-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
   label, input {
     display: block;
   }
@@ -145,6 +140,15 @@ section{
     justify-content: center;
     margin: 0 auto;
   }
+
+  .primary:disabled {
+    padding-right: 0.5em;
+    cursor: not-allowed;
+    color: #DDD;
+    border: none;
+    font-weight: 700 ;
+    background: linear-gradient(180deg, #e6e4e3 0%, #a89d92 100%);
+}
 
   @media (max-width: 1024px) {
     .listing-photo {

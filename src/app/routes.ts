@@ -21,7 +21,7 @@ const routeConfig: Routes = [
         title: 'Favourites Page'
     },
     {
-        path: 'purchase',
+        path: 'purchase/:id',
         component: HousingPurchaseComponent,
         title: 'Purchase Page'
     }

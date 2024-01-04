@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedDataService {
-  private formDataSubject = new Subject<any>();
+  private dataSubject = new BehaviorSubject<any>(null);
+  data$ = this.dataSubject.asObservable();
 
   sendFormData(data: any) {
-    this.formDataSubject.next(data);
-  }
-
-  getFormData() {
-    return this.formDataSubject.asObservable();
+    this.dataSubject.next(data);
   }
 }

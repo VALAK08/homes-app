@@ -1,22 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router'
 import { RouterModule} from '@angular/router'
 import { HousingService } from '../Services/housing.service';
 import { HousingLocation } from '../housing-location';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-import { Subject } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 import { SharedDataService } from '../Services/shared-data.service';
+import { Router } from '@angular/router';
 
 declare var intlTelInput: any;
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, RouterModule],
+  imports: [CommonModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, RouterModule,FormsModule],
   template: `
    <article class="article">
     <img class="listing-photo" [src]="housingLocation?.photo">
@@ -43,47 +43,49 @@ declare var intlTelInput: any;
   </tr>
   </table>
     </section>
-    <section class="listing-apply">
+    <section>
     <h2 class="section-heading">Apply now to live here</h2>
-    <form class="form" [formGroup]="applyForm">
+    <form class="form" (submit)="submitForm()">
+    <div class="submitFormWrapper">
     <section class="user-credentials-1">
-    <label for="first-name">First Name</label>
-    <input id="firstName" type="text" autocomplete="off" maxlength="10" autocapitalize="on" formControlName="firstName">
-    <div class="formValidation" *ngIf="applyForm.get('firstName')?.hasError('required') && applyForm.get('firstName')?.touched">
-    Kindly enter your <span class="fieldValidation">First Name</span>
-    </div>
-    <label for="last-tname">Last Name</label>
-    <input id="lastName"  type="text" autocomplete="off" maxlength="10" autocapitalize="on" formControlName="lastName">
-    <div class="formValidation" *ngIf="applyForm.get('lastName')?.hasError('required') && applyForm.get('lastName')?.touched">
-    Kindly enter your <span class="fieldValidation">Last Name</span>
-    </div>
+
+    <label for="firstName">First Name</label>
+    <input id="firstName" type="text" autocomplete="off" maxlength="10" [(ngModel)]="formData.firstName" #firstNameInput="ngModel" name="firstName" required>
+    <div class="formValidation" *ngIf="isFieldInvalid(firstNameInput)">Please enter your <span class="fieldValidation">First Name</span></div>
+
+    <label for="lastName">Last Name</label>
+    <input id="lastName"  type="text" autocomplete="off" maxlength="10" autocapitalize="on" [(ngModel)]="formData.lastName" #lastNameInput="ngModel" name="lastName" required>
+    <div class="formValidation" *ngIf="isFieldInvalid(lastNameInput)">Please enter your<span class="fieldValidation">Last Name</span></div>
+
     <label for="email">Email</label>
-    <input id="email"  type="text" autocomplete="off" maxlength="20" autocapitalize="on" formControlName="email">
-    <div class="formValidation" *ngIf="applyForm.get('email')?.hasError('required') && applyForm.get('email')?.touched">
-    Kindly enter your <span class="fieldValidation">Email</span>
-    </div>
-    </section>
+    <input id="email"  type="text" autocomplete="off" placeholder="example@hotmail.com" maxlength="20" [(ngModel)]="formData.email" #emailInput="ngModel" name="email" required>
+    <div class="formValidation" *ngIf="isFieldInvalid(emailInput)">Please enter your<span class="fieldValidation">Email</span></div>
+  </section>
     <section class="user-credentials-2">
+
     <label for="address">Address</label>
-    <input id="address" type="tel" autocomplete="off"  formControlName="address">
-    <div class="formValidation" *ngIf="applyForm.get('address')?.hasError('required') && applyForm.get('address')?.touched">
-    Kindly enter your <span class="fieldValidation">Address</span>
-    </div>
-    <label for="phone-number">Phone Number</label>
-    <input id="phoneNumber" type="text" intlTelInput autocomplete="off" pattern="^[0-9]+$" maxlength="10" formControlName="phoneNumber">
-    <div class="formValidation" *ngIf="applyForm.get('phoneNumber')?.hasError('required') && applyForm.get('phoneNumber')?.touched">
-    Kindly enter your <span class="fieldValidation">Phone Number</span>
-    </div>
+    <input id="address" type="tel" autocomplete="off" [(ngModel)]="formData.address" #addressInput="ngModel" name="address" required>
+    <div class="formValidation" *ngIf="isFieldInvalid(addressInput)">Please enter your<span class="fieldValidation">Address</span></div>
+
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phoneNumber" type="text" intlTelInput autocomplete="off" maxlength="10" [(ngModel)]="formData.phoneNumber" #phoneNumberInput="ngModel" name="phoneNumber" required> 
+    <div class="formValidation" *ngIf="isFieldInvalid(phoneNumberInput)">Please enter your<span class="fieldValidation">Phone Number</span></div>
     <mat-form-field>
   <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+  <input matInput [matDatepicker]="picker" autocomplete="off" placeholder="MM/DD/YYYY" [(ngModel)]="formData.date" #dateInput="ngModel" name="date" required>
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
+<div class="formValidation" *ngIf="isFieldInvalid(dateInput)">Please enter your<span class="fieldValidation">Date Of Birth</span></div>
   </section>
-  <button [routerLink]="['/purchase']" class="primary" type="submit" (submit)="submitForm()">Apply Now</button>
-</form> 
-  </section>
+</div>
+<button class="primary" type="submit" [disabled]="isFormInvalid()">Apply Now</button>
+
+<div *ngIf="isFormInvalid()">
+  <p style="color: red;">{{ invalidMessage }}</p>
+</div>
+</form>
+    </section>
   </div>
    </article> 
   `,
@@ -92,7 +94,9 @@ declare var intlTelInput: any;
 export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
-  housingLocation: HousingLocation | undefined;
+  @Input() housingLocation: HousingLocation | undefined;
+  invalidMessage: string = '';
+  formData = { firstName: '', lastName: '', email: '', address: '', phoneNumber: '', date: '' };
 
   ngOnInit(): void {
     const input = document.querySelector("#phoneNumber");
@@ -103,38 +107,25 @@ export class DetailsComponent {
         });
   }
 
-  formData = { firstName: '', lastName: '', email: '', address: '',phoneNumber: '' };
-  private dataSubject = new Subject<{ [key: string]: string }>();
-  data$ = this.dataSubject.asObservable();
-
-  submitData() {
-    this.dataSubject.next(this.formData);
+  submitForm() {
+    this.SharedDataService.sendFormData(this.formData);
+    this.router.navigate(['/purchase', this.housingLocation?.id]);
   }
 
-  applyForm = new FormGroup({
-    firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    lastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    address: new FormControl('', [Validators.required, Validators.minLength(10)]),
-    phoneNumber: new FormControl('', Validators.required)
-  })
-
-    submitForm() {
-    if (this.applyForm.valid) {
-      this.SharedDataService.sendFormData(this.applyForm.value);
-    }
+  isFieldInvalid(field: any): boolean {
+    return field.touched && field.invalid;
   }
 
-  constructor(private fb: FormBuilder, private SharedDataService: SharedDataService) {
+  isFormInvalid(): boolean {
+    return !!(this.isFieldInvalid({ touched: true, invalid: !this.formData.firstName  }) ||
+             this.isFieldInvalid({ touched: true, invalid: !this.formData.lastName }) ||
+             this.isFieldInvalid({ touched: true, invalid: !this.formData.email }) ||
+             this.isFieldInvalid({ touched: true, invalid: !this.formData.address }) ||
+             this.isFieldInvalid({ touched: true, invalid: !this.formData.phoneNumber }) ||
+             this.isFieldInvalid({ touched: true, invalid: !this.formData.date }));
+  }
 
-    this.applyForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      address: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-    });
-
+  constructor(private SharedDataService: SharedDataService, private router: Router) {
     const housingLocationId = Number(this.route.snapshot.params['id']);
     this.housingService.getHousingLocationById(housingLocationId).then(housingLocation => {
       this.housingLocation = housingLocation;
